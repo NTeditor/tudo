@@ -1,6 +1,9 @@
 [package]
 name = "tudo"
 version = "0.1.0"
+authors = ["NTeditor <nteditor4@gmail.com>"]
+license = "GPL-3.0-only"
+repository = "https://github.com/nteditor/tudo"
 edition = "2024"
 
 [dependencies]

@@ -4,17 +4,20 @@ use std::{env, process};
 use clap::Parser;
 use shell::Shell;
 
-const USAGE: &'static str = "tudo [FLAGS] [COMMAND]\n       tudo [FLAGS] --login";
+const USAGE: &'static str = "tudo [FLAGS] [COMMAND]...\n       tudo [FLAGS] --login";
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None, override_usage = USAGE)]
 struct Args {
+    /// The command to execute with root privileges
     #[arg(required_unless_present = "login", conflicts_with = "login")]
     command: Option<Vec<String>>,
 
+    /// Launches an interactive root shell
     #[arg(short, long)]
     login: bool,
 
+    /// Specifies the path to the shell to use. By default, it uses the $SHELL environment variable
     #[arg(short, long)]
     shell: Option<String>,
 }
